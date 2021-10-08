@@ -1,0 +1,78 @@
+{
+  "builder": {
+    "title": "Добавьте ингридиенты!",
+    "price": "Текущая цена:",
+    "checkout": "Приятного аппетита!"
+  },
+  "ingredients": {
+    "salad": "салат",
+    "bacon": "бекон",
+    "cheese": "сыр",
+    "meat": "мясо"
+  },
+  "controls": {
+    "less": "меньше",
+    "more": "больше"
+  },
+  "claims": {
+    "signinOrder": "Войдите для заказа",
+    "nowOrder": "Закажите сейчас"
+  },
+  "nav": {
+    "builder": "Бургер Билдер",
+    "auth": "Войти",
+    "orders": "Заказы",
+    "logout": "Выйти"
+  },
+  "auth": {
+    "login": "Войти",
+    "signup": "Регистрация",
+    "account": {
+      "create": "Создайте аккаунт",
+      "need": "Нужен аккаунт?",
+      "have": "Уже есть аккаунт?"
+    }
+  },
+  "form": {
+    "name": {
+      "label": "Имя",
+      "placeholder": "Ваше имя"
+    },
+    "email": {
+      "label": "Емайл",
+      "placeholder": "Ваш Емайл"
+    },
+    "password": {
+      "label": "Пароль",
+      "placeholder": "Ваш Пароль"
+    },
+    "address": {
+      "label": "Адрес",
+      "placeholder": "Ваш адрес"
+    },
+    "postal": {
+      "label": "Индекс",
+      "placeholder": "Ваш индекс"
+    },
+    "delivery": {
+      "label": "Способ доставки",
+      "placeholder": "Способ доставки"
+    }
+  },
+  "order": {
+    "name": "Название: ",
+    "ingredients": "Ингредиенты: ",
+    "price": "Цена: "
+  },
+  "actions": {
+    "cancel": "Отменить",
+    "continue": "Продолжить",
+    "order": "заказать"
+  },
+  "precheckout": {
+    "title": "Ваш заказ",
+    "text": "Вкуснейший бургер из следующих ингредиентов:",
+    "price": "Итоговая цена:",
+    "continue": "Перейти к оформлению?"
+  }
+}
