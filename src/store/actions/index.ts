@@ -41,19 +41,40 @@ export const logInMaybe = (): types.AppThunk => dispatch => {
   }
 }
 
+interface ReqPayload {
+  email: string,
+  password: string,
+  returnSecureToken: boolean
+}
+
+interface ResPayload {
+  data: {
+    idToken: string,
+    email: string,
+    refreshToken: string,
+    expiresIn: string,
+    localId: string,
+    registered: boolean
+  }
+}
+
 export const authenticate = ({ email, password, isLogin }: {email: string, password: string, isLogin: boolean}): types.AppThunk => async dispatch => {
   try {
     dispatch(authStarted())
     const API_KEY = 'AIzaSyD77mZ0A4HPCD8-heTNpvq3nWEnOvq_qNo'
-    const payload = { email, password, returnSecureToken: true}
-    const { data: { localId, idToken, expiresIn } } = await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:${isLogin ? 'signInWithPassword' : 'signUp'}?key=${API_KEY}`, payload)
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000)
+    const payload: ReqPayload = { email, password, returnSecureToken: true }
+    const response : ResPayload = await axios.post(
+      `https://identitytoolkit.googleapis.com/v1/accounts:${isLogin ? 'signInWithPassword' : 'signUp'}?key=${API_KEY}`,
+      payload
+    )
+    const { localId, idToken, expiresIn  } = response.data
+    const expirationDate = new Date(new Date().getTime() + (+expiresIn * 1000))
     localStorage.setItem('idToken', idToken)
     localStorage.setItem('localId', localId)
     localStorage.setItem('expirationDate', '' + expirationDate)
     dispatch(authSuccessed(localId, idToken))
-    checkAuthTimeout(expiresIn, dispatch)
-  } catch (error) {
+    checkAuthTimeout(+expiresIn, dispatch)
+  } catch (error :any) {
     dispatch(authFailed(error.response.data.error))
   }
 }
@@ -71,10 +92,10 @@ export const initIngredients = (): types.AppThunk => async dispatch => {
 export const purchaseBurger = (idToken:string, order:types.Order, history: any): types.AppThunk => async dispatch => {
   try {
     dispatch(purchaseBurgerStarted())
-    const response = await axios.post(`https://react-burger-d4ed6.firebaseio.com/orders.json?auth=${idToken}`, order)
+    const response: { data: types.OrderData } = await axios.post(`https://react-burger-d4ed6.firebaseio.com/orders.json?auth=${idToken}`, order)
     dispatch(purchaseBurgerSuccessed(order, response.data.name))
     history.push('/')
-  } catch (error) {
+  } catch (error :any) {
     dispatch(purchaseBurgerFailed(error))
   }
 }
@@ -82,7 +103,7 @@ export const purchaseBurger = (idToken:string, order:types.Order, history: any):
 export const fetchOrders = (idToken:string|null, localId:string): types.AppThunk => async dispatch => {
   try {
     dispatch(fetchOrdersStarted())
-    const response = await axios.get('https://react-burger-d4ed6.firebaseio.com/orders.json', {
+    const response :{ data: types.Orders } = await axios.get('https://react-burger-d4ed6.firebaseio.com/orders.json', {
       params: {
         auth: idToken,
         orderBy: '"localId"',
@@ -94,7 +115,7 @@ export const fetchOrders = (idToken:string|null, localId:string): types.AppThunk
       orders.push({ ...response.data[key], id: key })
     }
     dispatch(fetchOrdersSuccessed(orders))
-  } catch (error) {
+  } catch (error :any) {
     dispatch(fetchOrdersFailed(error))
   }
 }

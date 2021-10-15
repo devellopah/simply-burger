@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ReactFlagsSelect from 'react-flags-select';
 
-import 'react-flags-select/scss/react-flags-select.scss';
+// import 'react-flags-select/scss/react-flags-select.scss';
 
 import classes from './NavItems.module.scss'
 import { NavLink } from 'react-router-dom'
@@ -13,6 +13,7 @@ interface INavItemsProps {
 const NavItems: React.FunctionComponent<INavItemsProps> = (props) => {
   const { i18n, t } = useTranslation()
   const changeLanguage = (lang: string) => i18n.changeLanguage(lang)
+  const [selected, setSelected] = useState('US');
 
   return (
     <ul className={classes.list}>
@@ -35,7 +36,7 @@ const NavItems: React.FunctionComponent<INavItemsProps> = (props) => {
 
         <li className={classes.item}>
           <ReactFlagsSelect
-            defaultCountry="US"
+            selected={selected}
             className="menu-flags"
             countries={["US", "RU"]}
             customLabels={{ "US": "EN-US", "RU": "RU" }}

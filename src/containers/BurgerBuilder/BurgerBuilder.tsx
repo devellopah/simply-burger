@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import { browserHistory } from 'react-router-dom'
 import { withRouter } from "react-router";
 import { connect } from 'react-redux'
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import HashLoader from "react-spinners/HashLoader";
 import axios from '../../axios-orders'
 import Burger from '../../components/Burger'

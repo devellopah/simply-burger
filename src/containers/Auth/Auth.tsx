@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { connect } from 'react-redux'
-import * as Yup from 'yup'
-import { Formik, Form, Field, FieldProps } from 'formik'
+import * as yup from 'yup'
+import { Formik, Form, Field, FieldProps, FormikHelpers } from 'formik'
 import HashLoader from "react-spinners/HashLoader"
 import { useTranslation } from 'react-i18next'
 
@@ -18,16 +18,12 @@ interface IAuthProps {
   totalPrice: number,
 }
 
-interface IAuthState {
-  isLogin: boolean,
-}
-
-const schema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').defined(),
-  password: Yup.string().min(6, 'Too Short!').defined(),
+const schema = yup.object({
+  email: yup.string().email('Invalid email').required().default(''),
+  password: yup.string().min(6, 'Too Short!').required().default(''),
 })
 
-type MyFormValues = Yup.InferType<typeof schema>
+type Values = yup.InferType<typeof schema>
 
 const Auth = (props: IAuthProps) => {
 
@@ -37,11 +33,6 @@ const Auth = (props: IAuthProps) => {
 
   const switchAuthMode = () => {
     setIsLogin(!isLogin)
-  }
-
-  const initialValues: MyFormValues = {
-    email: '',
-    password: '',
   }
 
   return (
@@ -55,10 +46,12 @@ const Auth = (props: IAuthProps) => {
           />
           : <div className="form">
             <Formik
-              initialValues={initialValues}
+              initialValues={{ email: '', password: '' }}
               validationSchema={schema}
-              onSubmit={(values, actions) => {
-                actions.setSubmitting(false)
+              onSubmit={(
+                values: Values,
+                { setSubmitting }: FormikHelpers<Values>) => {
+                setSubmitting(false)
                 props.authenticate({ ...values, isLogin })
               }}
             >
