@@ -13,7 +13,7 @@ interface INavItemsProps {
 const NavItems: React.FunctionComponent<INavItemsProps> = (props) => {
   const { i18n, t } = useTranslation()
   const changeLanguage = (lang: string) => i18n.changeLanguage(lang)
-  const [selected, setSelected] = useState('US');
+  const [ selected ] = useState('US');
 
   return (
     <ul className={classes.list}>

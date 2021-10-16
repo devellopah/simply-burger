@@ -5,7 +5,7 @@ const initialState: types.OrderState = {
   loading: false,
 }
 
-export default (state = initialState, action: types.OrderAction): types.OrderState => {
+const order = (state = initialState, action: types.OrderAction): types.OrderState => {
   switch (action.type) {
     case types.PURCHASE_BURGER_STARTED:
       return {
@@ -44,3 +44,5 @@ export default (state = initialState, action: types.OrderAction): types.OrderSta
       return state
   }
 }
+
+export default order

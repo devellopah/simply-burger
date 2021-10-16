@@ -7,7 +7,7 @@ const initialState: types.AuthState = {
   isLoading: false,
 }
 
-export default (state = initialState, action: types.AuthAction): types.AuthState => {
+const auth =  (state = initialState, action: types.AuthAction): types.AuthState => {
   switch(action.type) {
     case types.AUTH_STARTED:
       return {...state, isLoading: true}
@@ -21,3 +21,5 @@ export default (state = initialState, action: types.AuthAction): types.AuthState
       return state
   }
 }
+
+export default auth

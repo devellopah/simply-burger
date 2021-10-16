@@ -13,7 +13,7 @@ const INGREDIENT_PRICES = {
   bacon: 1,
 }
 
-export default (state = initialState, action: types.BuilderAction): types.BuilderState => {
+const builder =  (state = initialState, action: types.BuilderAction): types.BuilderState => {
   switch (action.type) {
     case types.ADD_INGREDIENT:
       return {
@@ -54,3 +54,5 @@ export default (state = initialState, action: types.BuilderAction): types.Builde
       return state
   }
 }
+
+export default builder

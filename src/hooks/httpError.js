@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
-export default httpClient => {
-  const { request, response } = httpClient.interceptors
+const useHttpError = (axios) => {
+  const { request, response } = axios.interceptors
   const [error, setError] = useState(null)
   const reqInterceptors = request.use(req => {
     setError(null)
@@ -22,3 +22,5 @@ export default httpClient => {
 
   return [error, clearError]
 }
+
+export default useHttpError
