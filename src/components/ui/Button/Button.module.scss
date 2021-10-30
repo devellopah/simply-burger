@@ -1,21 +1,13 @@
 .Button {
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    outline: none;
-    cursor: pointer;
-    font: inherit;
-    padding: 10px;
-    margin: 10px;
-    font-weight: bold;
+    @apply bg-transparent border border-solid border-white outline-none cursor-pointer p-3 m-3 font-bold;
 }
 
 .success {
+    @apply uppercase;
     color: #5C9210;
-    text-transform: uppercase;
 }
 
 .danger {
+    @apply uppercase;
     color: #944317;
-    text-transform: uppercase;
 }

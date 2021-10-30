@@ -1,28 +1,18 @@
 .drawer {
-  position: fixed;
-  width: 200px;
-  max-width: 70%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 200;
-  background-color: #fff;
-  padding: 32px 16px;
-  box-sizing: border-box;
-  transition: transform 0.3s ease-out;
+  @apply fixed w-52 h-full left-0 top-0 bg-white py-8 px-4 box-border sm:hidden;
 
-  @media (min-width: 500px) {
-    display: none;
-  }
+  max-width: 70%;
+  z-index: 200;
+  transition: transform 0.3s ease-out;
 }
 
 .logo {
+  @apply mb-8;
   height: 10%;
-  margin-bottom: 30px;
 }
 
 .open {
-  transform: translateX(0)
+  @apply translate-x-0
 }
 
 .close {

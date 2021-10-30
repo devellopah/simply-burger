@@ -1,26 +1,16 @@
 .field {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
+  @apply w-full p-3 box-border;
 }
 
 .label {
-  font-weight: bold;
-  display: block;
-  margin: 8px;
+  @apply font-bold block m-2;
 }
 
 .element {
-  outline: none;
-  border: 1px solid #ccc;
-  background-color: #fff;
+  @apply outline-none border-1 border-solid py-2 px-3 w-full block bg-white border-gray-300;
   font-family: inherit;
-  padding: 6px 10px;
-  display: block;
-  width: 100%;
 
   &:focus {
-    outline: none;
-    background-color: #ccc;
+    @apply outline-none bg-gray-300;
   }
 }

@@ -1,14 +1,7 @@
 .Modal {
-    position: fixed;
+    @apply fixed bg-white w-3/4 border border-solid p-4 top-1/4 left-1/4 box-border border-gray-300;
     z-index: 500;
-    background-color: white;
-    width: 70%;
-    border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
-    padding: 16px;
-    left: 15%;
-    top: 30%;
-    box-sizing: border-box;
     transition: all 0.3s ease-out;
 }
 

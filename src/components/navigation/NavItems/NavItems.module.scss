@@ -1,25 +1,14 @@
 .list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
+  @apply m-0 p-0 list-none flex flex-col items-center h-full;
 }
 
 .item {
-  margin: 10px 0;
-  display: flex;
-  width: 100%;
-  display: block;
+  @apply my-2 flex w-full;
 }
 
 .link {
+  @apply w-full block no-underline;
   color: #8f5c2c;
-  text-decoration: none;
-  width: 100%;
-  display: block;
 
   &:hover,
   &:active,
@@ -30,35 +19,22 @@
 
 @media(min-width: 500px) {
   .list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: row;;
-    align-items: center;
-    height: 100%;
+    @apply m-0 p-0 list-none flex flex-row h-full items-center;
   }
 
   .item {
-    margin: 0;
-    display: flex;
-    height: 100%;
-    width: auto;
-    align-items: center;
+    @apply m-0 flex h-full w-auto items-center;
   }
 
   .link {
-    color: white;
-    height: 100%;
-    padding: 16px 10px;
-    border-bottom: 4px solid transparent;
+    @apply text-white h-full py-4 px-2 border-solid border-transparent border-4;
 
     &:hover,
     &:active,
     &___active {
+      @apply text-white border-4 border-solid;
       background-color: #8f5c2c;
-      border-bottom: 4px solid #40a4cb;
-      color: white;
+      border-color: #40a4cb;
     }
   }
 }
