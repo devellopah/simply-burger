@@ -4,7 +4,6 @@
 
 button {
   @apply p-1 mx-1 cursor-pointer outline-none border border-solid;
-  font-family: inherit;
   border-color: #aa6817;
 
   &:disabled {
