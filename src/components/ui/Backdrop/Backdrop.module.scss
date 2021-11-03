@@ -1,5 +1,4 @@
 .Backdrop {
-  @apply w-full h-full fixed left-0 top-0;
-  z-index: 100;
+  @apply w-full h-full fixed left-0 top-0 z-20;
   background-color: rgba(0,0,0,0.5);
 }

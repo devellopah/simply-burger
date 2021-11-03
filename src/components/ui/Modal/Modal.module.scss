@@ -1,13 +1,9 @@
 .Modal {
-    @apply fixed bg-white w-3/4 border border-solid p-4 top-1/4 left-1/4 box-border border-gray-300;
-    z-index: 500;
-    box-shadow: 1px 1px 1px black;
-    transition: all 0.3s ease-out;
+    @apply fixed bg-white w-3/4 border border-solid p-4 top-1/4 left-1/4 box-border border-gray-300 z-40 transition-all duration-300 ease-out shadow-lg;
 }
 
 @media (min-width: 640px) {
     .Modal {
-        width: 500px;
-        left: calc(50% - 250px);
+        @apply w-120 left-1/2;
     }
 }

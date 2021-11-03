@@ -11,7 +11,7 @@ interface IModalProps {
 const Modal: React.FunctionComponent<IModalProps> = (props) => {
   const styles = {
     Modal: {
-      transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
+      transform: props.show ? 'translateY(0px) translateX(-50%)' : 'translateY(-100vh)',
       opacity: props.show ? 1 : 0,
     }
   }
