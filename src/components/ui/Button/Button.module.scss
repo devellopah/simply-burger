@@ -1,13 +1,11 @@
 .Button {
-    @apply bg-transparent border border-solid border-white outline-none cursor-pointer p-3 m-3 font-bold;
+    @apply uppercase bg-transparent border border-solid border-white outline-none cursor-pointer p-3 m-3 font-bold;
 }
 
 .success {
-    @apply uppercase;
-    color: #5C9210;
+    @apply text-green-600;
 }
 
 .danger {
-    @apply uppercase;
-    color: #944317;
+    @apply text-yellow-800;
 }
