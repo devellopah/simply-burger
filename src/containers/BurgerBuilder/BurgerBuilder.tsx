@@ -14,6 +14,8 @@ import { Ingredients } from '../../store/actions/types'
 import { addIngredient, removeIngredient, initIngredients } from '../../store/actions'
 import { AppState } from '../../store';
 
+import tw from '../../services/tailwind'
+
 const override = css`
   position: absolute;
   top: 50%;
@@ -87,7 +89,7 @@ const BurgerBuilder = (props: IBurgerBuilderProps, state: IBurgerBuilderState) =
       <HashLoader
         css={override}
         size={100}
-        color={"#703b09"}
+        color={tw.theme.color.yellow['900']}
         loading={!props.ingredients}
       />
       {props.ingredients && content}

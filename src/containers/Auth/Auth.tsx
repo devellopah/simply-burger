@@ -10,6 +10,8 @@ import { authenticate } from '../../store/actions'
 import { AppState } from '../../store'
 import { Redirect } from 'react-router-dom'
 
+import tw from '../../services/tailwind'
+
 interface IAuthProps {
   authenticate: any,
   isLoading: boolean,
@@ -42,7 +44,7 @@ const Auth = (props: IAuthProps) => {
       {props.isLoading
           ? <HashLoader
             size={100}
-            color={"#703b09"}
+          color={tw.theme.backgroundColor.yellow['900']}
           />
           : <div className="form">
             <Formik

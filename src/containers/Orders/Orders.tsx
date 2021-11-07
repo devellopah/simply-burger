@@ -7,6 +7,7 @@ import Order from '../../components/Order'
 import * as types from '../../store/actions/types'
 import { AppState } from '../../store'
 import { fetchOrders } from '../../store/actions/'
+import tw from '../../services/tailwind'
 
 export interface IOrdersProps {
   orders: types.Orders,
@@ -23,7 +24,7 @@ const Orders = ({ orders, loading, localId, fetchOrders }: IOrdersProps) => {
   }, [fetchOrders, localId])
 
   return loading
-    ? <HashLoader size={100} color={"#703b09"} />
+    ? <HashLoader size={100} color={tw.theme.color.yellow['900']} />
     : <div>
         {orders.map(order =>
           <Order
