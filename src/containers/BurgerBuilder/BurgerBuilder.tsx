@@ -89,7 +89,7 @@ const BurgerBuilder = (props: IBurgerBuilderProps, state: IBurgerBuilderState) =
       <HashLoader
         css={override}
         size={100}
-        color={tw.theme.color.yellow['900']}
+        color={tw.theme.colors.yellow['900']}
         loading={!props.ingredients}
       />
       {props.ingredients && content}

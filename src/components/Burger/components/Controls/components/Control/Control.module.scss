@@ -3,18 +3,14 @@
 }
 
 button {
-  @apply p-1 mx-1 cursor-pointer outline-none border border-solid;
-  border-color: #aa6817;
+  @apply p-1 mx-1 cursor-pointer outline-none border border-solid border-yellow-600;
 
   &:disabled {
-    @apply border border-solid cursor-default text-gray-300;
-    background-color: #AC9980;
-    border-color: #7E7365;
+    @apply border border-solid cursor-default text-gray-300 bg-yellow-100 border-yellow-200;
   }
 
   &:hover:disabled {
-    @apply cursor-not-allowed text-gray-300;
-    background-color: #AC9980;
+    @apply cursor-not-allowed text-gray-300 bg-yellow-100;
   }
 }
 
@@ -23,23 +19,19 @@ button {
 }
 
 .less {
-    @apply w-20 text-white;
-    background-color: #D39952;
+    @apply w-20 text-white bg-yellow-500;
 
     &:hover,
     &:active {
-      @apply text-white;
-      background-color: #DAA972;
+      @apply text-white bg-yellow-600;
     }
 }
 
 .more {
-    @apply w-20 text-white;
-    background-color: #8F5E1E;
+    @apply w-20 text-white bg-yellow-700;
 
     &:hover,
     &:active {
-      @apply text-white;
-      background-color: #99703F;
+      @apply text-white bg-yellow-800;
     }
 }

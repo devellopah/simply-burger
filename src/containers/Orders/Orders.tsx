@@ -24,7 +24,7 @@ const Orders = ({ orders, loading, localId, fetchOrders }: IOrdersProps) => {
   }, [fetchOrders, localId])
 
   return loading
-    ? <HashLoader size={100} color={tw.theme.color.yellow['900']} />
+    ? <HashLoader size={100} color={tw.theme.colors.yellow['900']} />
     : <div>
         {orders.map(order =>
           <Order
