@@ -1,29 +1,18 @@
 .Controls {
-    @apply w-full flex flex-col items-center py-3;
-    background: #cf8f2e;
-    box-shadow: 0 2px 1px #cccccc;
+    @apply w-full flex flex-col items-center py-3 bg-yellow-400 shadow;
 }
 
 
 .OrderButton {
-    @apply outline-none cursor-pointer uppercase py-4 px-8 text-xl border border-solid;
-    background-color: #DAD735;
-    border-color: #966909;
-    color: #966909;
-    box-shadow: 2px 2px 2px #966909;
+    @apply outline-none cursor-pointer uppercase py-4 px-8 text-xl border border-solid shadow bg-yellow-200 border-yellow-700 text-yellow-700;
 }
 
 .OrderButton:hover, .OrderButton:active {
-    @apply border border-solid;
-    background-color: #A0DB41;
-    border-color: #966909;
-    color: #966909;
+    @apply border border-solid bg-green-400;
 }
 
 .OrderButton:disabled {
-    @apply border border-solid cursor-not-allowed border-gray-300;
-    background-color: #C7C6C6;
-    color: #888888;
+    @apply border border-solid cursor-not-allowed border-gray-300 text-gray-400 bg-gray-200;
 }
 
 .OrderButton:not(:disabled) {

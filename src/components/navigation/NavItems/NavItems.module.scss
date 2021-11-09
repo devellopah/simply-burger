@@ -7,13 +7,12 @@
 }
 
 .link {
-  @apply w-full block no-underline;
-  color: #8f5c2c;
+  @apply w-full block no-underline text-yellow-800;
 
   &:hover,
   &:active,
   &___active {
-    color: #40a4cb;
+    @apply text-blue-400;
   }
 }
 
@@ -32,9 +31,7 @@
     &:hover,
     &:active,
     &___active {
-      @apply text-white border-4 border-solid;
-      background-color: #8f5c2c;
-      border-color: #40a4cb;
+      @apply text-white border-4 border-solid bg-yellow-800 border-blue-400;
     }
   }
 }
