@@ -1,17 +1,15 @@
 .drawer {
-  @apply fixed w-52 h-full left-0 top-0 bg-white py-8 px-4 box-border sm:hidden z-30 transition-transform duration-300 ease-out;
-  max-width: 70%;
+  @apply fixed w-52 max-w-3/4 h-full left-0 top-0 bg-white py-8 px-4 box-border sm:hidden z-30 transition-transform duration-300 ease-out;
 }
 
 .logo {
-  @apply mb-8;
-  height: 10%;
+  @apply mb-8 h-1/10;
 }
 
 .open {
-  @apply translate-x-0
+  @apply transform translate-x-0;
 }
 
 .close {
-  transform: translateX(-100%);
+  @apply transform -translate-x-full;
 }

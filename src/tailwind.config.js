@@ -5,7 +5,13 @@ module.exports = {
     extend: {
       width: {
         '120': '30rem',
-      }
+      },
+      maxWidth: {
+        '3/4': '75%',
+      },
+      height: {
+        '1/10': '10%',
+      },
     },
   },
   variants: {
