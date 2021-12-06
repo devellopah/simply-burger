@@ -24,12 +24,14 @@ const initialState: BuilderState = {
 export const fetchIngredients = createAsyncThunk(
   'builder/fetchIngredients',
   async () => {
-    try {
-      const response: ResPayload = await axios.get('https://react-burger-d4ed6.firebaseio.com/ingredients.json')
-      // dispatch(setIngredients(response.data.ingredients))
-      return response.data
-    } catch (error) {
-      // dispatch(fetchIngredientsFailed())
+    const response: ResPayload = await axios.get('https://react-burger-d4ed6.firebaseio.com/ingredients.json')
+    // dispatch(setIngredients(response.data.ingredients))
+    return response.data.ingredients
+    // try {
+    // }
+    // catch (error) {
+    //   dispatch(fetchIngredientsFailed())
+    // }
   }
 )
 
@@ -41,7 +43,7 @@ export const builderSlice = createSlice({
   extraReducers: (builder) => {
     builder.
       addCase(fetchIngredients.fulfilled, (state, action) => {
-        state.ingredients = action.payload.ingredients
+        state.ingredients = action.payload ?? null
         state.totalPrice = 0
         state.error = false
       })
