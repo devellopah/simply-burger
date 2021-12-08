@@ -35,7 +35,7 @@ export interface ResPayload {
 export const authFullfilled = (localId: string, idToken: string) => ({ type: 'auth/fullfilled', localId, idToken })
 
 export const authenticate = createAsyncThunk(
-  'auth',
+  'auth/authenticate',
   async ({ email, password, returnSecureToken }: ReqPayload) => {
     const API_KEY = 'AIzaSyD77mZ0A4HPCD8-heTNpvq3nWEnOvq_qNo'
     const payload: ReqPayload = { email, password, returnSecureToken: true }
