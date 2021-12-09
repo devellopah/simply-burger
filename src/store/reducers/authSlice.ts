@@ -103,3 +103,5 @@ export const logInMaybe = (): AppThunk => dispatch => {
     dispatch(logout())
   }
 }
+
+export default authSlice.reducer

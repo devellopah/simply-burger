@@ -1,9 +1,13 @@
+import orderSlice from './../store/reducers/orderSlice';
+import builderSlice from './../store/reducers/builderSlice';
+import authSlice from './../store/reducers/authSlice';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-// import counterReducer from '../features/counter/counterSlice';
 
 export const store = configureStore({
   reducer: {
-    // counter: counterReducer,
+    auth: authSlice,
+    builder: builderSlice,
+    order: orderSlice
   },
 });
 
