@@ -6,8 +6,8 @@ import HashLoader from "react-spinners/HashLoader"
 import { useTranslation } from 'react-i18next'
 
 import Button from '../../components/ui/Button'
-import { authenticate } from '../../store/actions'
-import { AppState } from '../../store'
+import { authenticate } from '../../store/reducers/authSlice'
+import { RootState } from '../../app/store'
 import { Redirect } from 'react-router-dom'
 
 import tw from '../../services/tailwind'
@@ -110,7 +110,7 @@ const Auth = (props: IAuthProps) => {
 }
 
 export default connect(
-  (state: AppState) => ({
+  (state: RootState) => ({
     isLoading: state.auth.isLoading,
     error: state.auth.error,
     isAuth: state.auth.idToken !== null,

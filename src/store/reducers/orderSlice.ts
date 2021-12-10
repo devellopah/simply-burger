@@ -1,8 +1,7 @@
 import { Ingredients } from './../actions/types';
 import axios from 'axios'
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
-import { create } from 'domain';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+// import { RootState, AppThunk } from '../../app/store';
 
 export interface Order {
   id?: string,

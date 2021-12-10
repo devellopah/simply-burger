@@ -1,7 +1,7 @@
-import { BuilderAction, Ingredient } from './../actions/types';
+import { Ingredient } from './../actions/types';
 import axios from 'axios'
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../app/store';
+// import { RootState, AppThunk } from '../../app/store';
 import { Ingredients } from '../actions/types';
 
 export const INGREDIENT_PRICES = {
