@@ -1,10 +1,11 @@
-import React, { useEffect, Suspense, lazy } from 'react'
+import { useEffect, Suspense, lazy } from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Layout from  './hoc/Layout'
-import { logInMaybe } from './store/actions'
-import { AppState } from './store'
+// import { logInMaybe } from './store/actions'
+import { logInMaybe } from './store/reducers/authSlice'
+import { RootState } from './app/store'
 
 const BurgerBuilder = lazy(() => import('./containers/BurgerBuilder'))
 const Checkout = lazy(() => import('./containers/Checkout'))
@@ -42,6 +43,6 @@ const App = ({ logInMaybe, isAuth } :IAppProps) => {
 }
 
 export default connect(
-  (state:AppState) => ({ isAuth: state.auth.idToken !== null }),
+  (state:RootState) => ({ isAuth: state.auth.idToken !== null }),
   { logInMaybe }
 )(App)

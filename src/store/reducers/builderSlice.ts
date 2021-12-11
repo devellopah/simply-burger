@@ -1,8 +1,6 @@
-import { Ingredient } from './../actions/types';
 import axios from 'axios'
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { RootState, AppThunk } from '../../app/store';
-import { Ingredients } from '../actions/types';
 
 export const INGREDIENT_PRICES = {
   salad: 0.5,
@@ -10,7 +8,14 @@ export const INGREDIENT_PRICES = {
   meat: 1.5,
   bacon: 1,
 }
+export type Ingredient = 'salad' | 'bacon' | 'cheese' | 'meat'
 
+export interface Ingredients {
+  salad: number,
+  bacon: number,
+  cheese: number,
+  meat: number,
+}
 export interface BuilderState {
   ingredients: Ingredients | null,
   totalPrice: number,
@@ -18,9 +23,7 @@ export interface BuilderState {
 }
 
 export interface ResPayload {
-  data: {
-    ingredients: Ingredients
-  }
+  data: Ingredients
 }
 
 const initialState: BuilderState = {
@@ -34,7 +37,7 @@ export const fetchIngredients = createAsyncThunk(
   async () => {
     const response: ResPayload = await axios.get('https://react-burger-d4ed6.firebaseio.com/ingredients.json')
     // dispatch(setIngredients(response.data.ingredients))
-    return response.data.ingredients
+    return response.data
     // try {
     // }
     // catch (error) {
@@ -73,4 +76,5 @@ export const builderSlice = createSlice({
   }
 })
 
+export const { addIngredient, removeIngredient } = builderSlice.actions
 export default builderSlice.reducer

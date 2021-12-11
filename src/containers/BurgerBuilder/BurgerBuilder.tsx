@@ -10,8 +10,13 @@ import Controls from '../../components/Burger/components/Controls'
 import OrderSummary from '../../components/Burger/components/OrderSummary'
 import Modal from '../../components/ui/Modal'
 import withError from '../../hoc/withError'
-import { Ingredients } from '../../store/actions/types'
-import { addIngredient, removeIngredient, initIngredients } from '../../store/actions'
+
+import {
+  Ingredients,
+  addIngredient,
+  removeIngredient,
+  fetchIngredients,
+} from '../../store/reducers/builderSlice'
 import { AppState } from '../../store';
 
 import tw from '../../services/tailwind'
@@ -31,7 +36,7 @@ export interface IBurgerBuilderProps {
   isAuth: boolean,
   addIngredient: typeof addIngredient,
   removeIngredient: typeof removeIngredient,
-  initIngredients: typeof initIngredients,
+  fetchIngredients: typeof fetchIngredients,
 }
 
 export interface IBurgerBuilderState {
@@ -41,9 +46,9 @@ export interface IBurgerBuilderState {
 
 const BurgerBuilder = (props: IBurgerBuilderProps, state: IBurgerBuilderState) => {
   const [isPurchasing, setisPurchasing] = useState(false)
-  const { initIngredients } = props
+  const { fetchIngredients } = props
 
-  useEffect(() => { initIngredients() }, [initIngredients])
+  useEffect(() => { fetchIngredients() }, [fetchIngredients])
 
   const purchaseHandler = () => {
     props.isAuth
@@ -100,5 +105,5 @@ const BurgerBuilder = (props: IBurgerBuilderProps, state: IBurgerBuilderState) =
 
 export default withRouter(connect(
   (state: AppState) => ({ ...state.builder, isAuth: state.auth.idToken !== null }),
-  { addIngredient, removeIngredient, initIngredients }
+  { addIngredient, removeIngredient, fetchIngredients }
 )(withError(BurgerBuilder, axios)))
