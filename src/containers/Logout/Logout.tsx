@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { logout } from '../../store/actions/index'
-import { AppState } from '../../store';
+import { logout } from '../../store/reducers/authSlice'
+import { RootState } from '../../app/store';
 
 export interface ILogoutProps {
   logout: typeof logout,
@@ -16,6 +16,6 @@ const Logout = ({ logout }: ILogoutProps) => {
 }
 
 export default connect(
-  (state:AppState) => ({ isAuth: state.auth.idToken !== null }),
+  (state:RootState) => ({ isAuth: state.auth.idToken !== null }),
   { logout }
 )(Logout);

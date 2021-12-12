@@ -4,13 +4,12 @@ import HashLoader from "react-spinners/HashLoader";
 import axios from '../../axios-orders'
 import withError from '../../hoc/withError'
 import Order from '../../components/Order'
-import * as types from '../../store/actions/types'
-import { AppState } from '../../store'
-import { fetchOrders } from '../../store/actions/'
+import { RootState } from '../../app/store'
+import { Orders as OrdersType, fetchOrders } from '../../store/reducers/orderSlice'
 import tw from '../../services/tailwind'
 
 export interface IOrdersProps {
-  orders: types.Orders,
+  orders: OrdersType,
   loading: boolean,
   idToken: string,
   localId: string,
@@ -20,7 +19,8 @@ export interface IOrdersProps {
 const Orders = ({ orders, loading, localId, fetchOrders }: IOrdersProps) => {
 
   useEffect(() => {
-    fetchOrders(localStorage.getItem('idToken'), localId)
+    const idToken = localStorage.getItem('idToken')
+    fetchOrders({ idToken, localId })
   }, [fetchOrders, localId])
 
   return loading
@@ -38,7 +38,7 @@ const Orders = ({ orders, loading, localId, fetchOrders }: IOrdersProps) => {
 }
 
 export default connect(
-  (state: AppState) => ({
+  (state: RootState) => ({
     ...state.order,
     idToken: state.auth.idToken,
     localId: state.auth.localId

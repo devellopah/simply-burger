@@ -1,14 +1,13 @@
 import { Ingredients } from './../actions/types';
 import axios from 'axios'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-// import { RootState, AppThunk } from '../../app/store';
 
 export interface Order {
   id?: string,
   ingredients: Ingredients,
   price: number,
   localId: string,
-  orderData: object,
+  orderData: OrderData,
 }
 
 export type Orders = Order[]
@@ -34,7 +33,6 @@ export const purchaseBurger = createAsyncThunk(
   'order/purchaseBurger',
   async ({ idToken, order, history }: { idToken: string, order: Order, history: any}) => {
     const response: { data: OrderData } = await axios.post(`https://react-burger-d4ed6.firebaseio.com/orders.json?auth=${idToken}`, order)
-    // dispatch(purchaseBurgerSuccessed(order, response.data.name))
     history.push('/')
     return { order, id: response.data.name}
   }

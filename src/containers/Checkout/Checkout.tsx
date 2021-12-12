@@ -4,9 +4,8 @@ import { connect } from 'react-redux'
 
 import CheckoutSummary from '../../components/Order/CheckoutSummary'
 import ContactData from '../Checkout/ContactData'
-import { Ingredients } from '../../store/actions/types'
-import { addIngredient, removeIngredient } from '../../store/actions'
-import { AppState } from '../../store';
+import { Ingredients, addIngredient, removeIngredient } from '../../store/reducers/builderSlice'
+import { RootState } from '../../app/store'
 
 export interface ICheckoutProps {
   location: any,
@@ -29,7 +28,7 @@ const Checkout = (props: ICheckoutProps) => {
   ) : <Redirect to="/" />
 }
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: RootState) => ({
   ingredients: state.builder.ingredients!,
   totalPrice: state.builder.totalPrice,
 })

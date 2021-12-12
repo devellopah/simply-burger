@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Toolbar from '../../components/navigation/Toolbar'
 import SideDrawer from '../../components/navigation/SideDrawer'
 import classes from './Layout.module.scss';
-import { AppState } from '../../store';
+import { RootState } from '../../app/store';
 
 export interface ILayoutProps {
   children: React.ReactNode,
@@ -35,5 +35,5 @@ const Layout = (props: ILayoutProps) => {
 }
 
 export default connect(
-  (state: AppState) => ({ isAuth: state.auth.idToken !== null })
+  (state: RootState) => ({ isAuth: state.auth.idToken !== null })
 )(Layout)

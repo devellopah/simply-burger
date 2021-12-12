@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import HashLoader from "react-spinners/HashLoader"
 import { connect } from 'react-redux'
 import { withRouter } from "react-router"
@@ -9,10 +9,10 @@ import { useTranslation } from 'react-i18next'
 import Button from '../../../components/ui/Button'
 import classes from './ContactData.module.scss'
 import axios from '../../../axios-orders'
-import { Ingredients, Order } from '../../../store/actions/types'
-import { purchaseBurger } from '../../../store/actions'
+import { Ingredients } from '../../../store/reducers/builderSlice'
+import { Order, purchaseBurger } from '../../../store/reducers/orderSlice'
 import withError from '../../../hoc/withError'
-import { AppState } from '../../../store'
+import { RootState } from '../../../app/store'
 
 interface IAppProps {
   ingredients: Ingredients,
@@ -36,6 +36,7 @@ type Values = Yup.InferType<typeof orderDataSchema>
 
 const ContactData = (props: IAppProps) => {
   const { t } = useTranslation()
+  const { idToken, history } = props
 
   return (
     <div className={classes.ContactData}>
@@ -60,7 +61,7 @@ const ContactData = (props: IAppProps) => {
                 localId: props.localId,
                 orderData: values,
               }
-              props.purchaseBurger(props.idToken, order, props.history)
+              props.purchaseBurger({idToken, order, history})
             }}
           >
             {({ isSubmitting }) => (
@@ -164,7 +165,7 @@ const ContactData = (props: IAppProps) => {
   )
 }
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: RootState) => ({
   ingredients: state.builder.ingredients,
   totalPrice: state.builder.totalPrice,
   loading: state.order.loading,

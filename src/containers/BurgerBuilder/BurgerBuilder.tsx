@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-// import { browserHistory } from 'react-router-dom'
+import { useState, useEffect } from 'react';
 import { withRouter } from "react-router";
 import { connect } from 'react-redux'
 import { css } from "@emotion/react";
@@ -101,7 +100,6 @@ const BurgerBuilder = (props: IBurgerBuilderProps, state: IBurgerBuilderState) =
     </>
   )
 }
-
 
 export default withRouter(connect(
   (state: AppState) => ({ ...state.builder, isAuth: state.auth.idToken !== null }),
