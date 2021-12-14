@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 import Button from '../../components/ui/Button'
 import { authenticate } from '../../store/reducers/authSlice'
-import { RootState } from '../../app/store'
+import { RootState } from '../../store'
 import { Redirect } from 'react-router-dom'
 
 import tw from '../../services/tailwind'

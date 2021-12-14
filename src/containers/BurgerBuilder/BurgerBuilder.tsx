@@ -16,7 +16,7 @@ import {
   removeIngredient,
   fetchIngredients,
 } from '../../store/reducers/builderSlice'
-import { AppState } from '../../store';
+import { RootState } from '../../store';
 
 import tw from '../../services/tailwind'
 
@@ -102,6 +102,6 @@ const BurgerBuilder = (props: IBurgerBuilderProps, state: IBurgerBuilderState) =
 }
 
 export default withRouter(connect(
-  (state: AppState) => ({ ...state.builder, isAuth: state.auth.idToken !== null }),
+  (state: RootState) => ({ ...state.builder, isAuth: state.auth.idToken !== null }),
   { addIngredient, removeIngredient, fetchIngredients }
 )(withError(BurgerBuilder, axios)))

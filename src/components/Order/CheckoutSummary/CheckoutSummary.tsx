@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import Burger from '../../Burger'
 import Button from '../../ui/Button'
 import classes from './CheckoutSummary.module.scss'
-import { Ingredients } from '../../../store/actions/types'
+import { Ingredients } from '../../../store/reducers/builderSlice'
 
 interface ICheckoutSummaryProps {
   ingredients: Ingredients,

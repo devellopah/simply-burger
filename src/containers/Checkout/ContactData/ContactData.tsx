@@ -12,7 +12,7 @@ import axios from '../../../axios-orders'
 import { Ingredients } from '../../../store/reducers/builderSlice'
 import { Order, purchaseBurger } from '../../../store/reducers/orderSlice'
 import withError from '../../../hoc/withError'
-import { RootState } from '../../../app/store'
+import { RootState } from '../../../store'
 
 interface IAppProps {
   ingredients: Ingredients,

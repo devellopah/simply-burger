@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import classes from './Select.module.scss'
 
 interface ISelectProps {

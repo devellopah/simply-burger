@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import CheckoutSummary from '../../components/Order/CheckoutSummary'
 import ContactData from '../Checkout/ContactData'
 import { Ingredients, addIngredient, removeIngredient } from '../../store/reducers/builderSlice'
-import { RootState } from '../../app/store'
+import { RootState } from '../../store'
 
 export interface ICheckoutProps {
   location: any,

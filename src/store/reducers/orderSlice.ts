@@ -1,4 +1,4 @@
-import { Ingredients } from './../actions/types';
+import { Ingredients } from './builderSlice';
 import axios from 'axios'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
@@ -15,7 +15,7 @@ export interface OrderData {
   deliveryMethod: string,
   email: string,
   name: string,
-  postal: string,
+  postal: number,
   street: string,
 }
 

@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import { connect } from 'react-redux'
 
 import Layout from  './hoc/Layout'
-// import { logInMaybe } from './store/actions'
 import { logInMaybe } from './store/reducers/authSlice'
-import { RootState } from './app/store'
+import { RootState } from './store'
 
 const BurgerBuilder = lazy(() => import('./containers/BurgerBuilder'))
 const Checkout = lazy(() => import('./containers/Checkout'))

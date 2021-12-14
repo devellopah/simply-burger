@@ -4,7 +4,7 @@ import HashLoader from "react-spinners/HashLoader";
 import axios from '../../axios-orders'
 import withError from '../../hoc/withError'
 import Order from '../../components/Order'
-import { RootState } from '../../app/store'
+import { RootState } from '../../store'
 import { Orders as OrdersType, fetchOrders } from '../../store/reducers/orderSlice'
 import tw from '../../services/tailwind'
 

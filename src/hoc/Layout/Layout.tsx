@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Toolbar from '../../components/navigation/Toolbar'
 import SideDrawer from '../../components/navigation/SideDrawer'
 import classes from './Layout.module.scss';
-import { RootState } from '../../app/store';
+import { RootState } from '../../store';
 
 export interface ILayoutProps {
   children: React.ReactNode,

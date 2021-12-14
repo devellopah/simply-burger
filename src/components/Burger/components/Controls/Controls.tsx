@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next'
 import Control from './components/Control'
 import classes from './Controls.module.scss'
-import { Ingredient, Ingredients } from '../../../../store/actions/types'
+import { Ingredient, Ingredients } from '../../../../store/reducers/builderSlice'
 
 const controls :{label: string, type: Ingredient}[] = [
   {label: 'Salad', type: 'salad'},

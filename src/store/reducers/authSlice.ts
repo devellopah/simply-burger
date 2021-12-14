@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { AppThunk } from '../../app/store';
+import { AppThunk } from '..';
 // import { fetchCount } from './counterAPI';
 export interface AuthState {
   idToken: string | null,

@@ -1,6 +1,6 @@
-import orderSlice from './../store/reducers/orderSlice';
-import builderSlice from './../store/reducers/builderSlice';
-import authSlice from './../store/reducers/authSlice';
+import orderSlice from './reducers/orderSlice';
+import builderSlice from './reducers/builderSlice';
+import authSlice from './reducers/authSlice';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 export const store = configureStore({

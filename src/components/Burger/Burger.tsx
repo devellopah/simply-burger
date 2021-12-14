@@ -1,9 +1,8 @@
-import React from 'react'
 import { useTranslation } from 'react-i18next';
 
 import classes from './Burger.module.scss'
 import Ingredient from './components/Ingredient'
-import { Ingredient as IngredientType, Ingredients } from '../../store/actions/types'
+import { Ingredient as IngredientType, Ingredients } from '../../store/reducers/builderSlice'
 
 
 export interface IBurgerProps {
