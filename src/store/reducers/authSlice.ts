@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AppThunk } from '..';
-// import { fetchCount } from './counterAPI';
 export interface AuthState {
   idToken: string | null,
   localId: string | null,
@@ -18,7 +17,7 @@ const initialState: AuthState = {
 export interface ReqPayload {
   email: string,
   password: string,
-  returnSecureToken: boolean
+  isLogin: boolean
 }
 
 export interface ResPayload {
@@ -32,15 +31,15 @@ export interface ResPayload {
   }
 }
 
-export const authFullfilled = (localId: string, idToken: string) => ({ type: 'auth/fullfilled', localId, idToken })
+export const authFulfilled = (localId: string, idToken: string) => ({ type: 'auth/authenticate/fulfilled', localId, idToken })
 
 export const authenticate = createAsyncThunk(
   'auth/authenticate',
-  async ({ email, password, returnSecureToken }: ReqPayload) => {
+  async (payload: ReqPayload) => {
+    console.log('payload', payload)
     const API_KEY = 'AIzaSyD77mZ0A4HPCD8-heTNpvq3nWEnOvq_qNo'
-    const payload: ReqPayload = { email, password, returnSecureToken: true }
     const response: ResPayload = await axios.post(
-      `https://identitytoolkit.googleapis.com/v1/accounts:${returnSecureToken ? 'signInWithPassword' : 'signUp'}?key=${API_KEY}`,
+      `https://identitytoolkit.googleapis.com/v1/accounts:${payload.isLogin ? 'signInWithPassword' : 'signUp'}?key=${API_KEY}`,
       payload
     )
     const { localId, idToken, expiresIn } = response.data
@@ -97,7 +96,7 @@ export const logInMaybe = (): AppThunk => dispatch => {
   if (expirationDate > new Date()) {
     // dispatch(authSuccessed(localStorage.getItem('localId')!, idToken))
     // dispatch(authenticate.fulfilled())
-    dispatch(authFullfilled(localStorage.getItem('localId') as string, idToken))
+    dispatch(authFulfilled(localStorage.getItem('localId') as string, idToken))
     checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000)
   } else {
     dispatch(logout())
