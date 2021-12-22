@@ -54,7 +54,7 @@ const Auth = (props: IAuthProps) => {
                 values: Values,
                 { setSubmitting }: FormikHelpers<Values>) => {
                 setSubmitting(false)
-                props.authenticate({ ...values, isLogin })
+                props.authenticate({ ...values, returnSecureToken: isLogin })
               }}
             >
               {({ isSubmitting, values }) => (

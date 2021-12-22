@@ -17,7 +17,7 @@ const initialState: AuthState = {
 export interface ReqPayload {
   email: string,
   password: string,
-  isLogin: boolean
+  returnSecureToken: boolean
 }
 
 export interface ResPayload {
@@ -39,7 +39,7 @@ export const authenticate = createAsyncThunk(
     console.log('payload', payload)
     const API_KEY = 'AIzaSyD77mZ0A4HPCD8-heTNpvq3nWEnOvq_qNo'
     const response: ResPayload = await axios.post(
-      `https://identitytoolkit.googleapis.com/v1/accounts:${payload.isLogin ? 'signInWithPassword' : 'signUp'}?key=${API_KEY}`,
+      `https://identitytoolkit.googleapis.com/v1/accounts:${payload.returnSecureToken ? 'signInWithPassword' : 'signUp'}?key=${API_KEY}`,
       payload
     )
     const { localId, idToken, expiresIn } = response.data
